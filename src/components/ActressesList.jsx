@@ -6,14 +6,14 @@ export default function ActressesList() {
         <section>
             <div className={`flex wrap`}>
 
-                {setActresses.map(({id, name, image}) => {
+                {/* {actress.map(({id, name, image}) => {
                     
                     return <ActressCard
                         id={id}
                         name={name}
                         image={image}
                     />
-                })}
+                })} */}
             </div>
         </section>
     );

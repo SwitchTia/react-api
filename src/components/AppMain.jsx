@@ -1,15 +1,21 @@
+import { useEffect, useState } from "react";
 import ActressesList from "./ActressesList";
 import ActressList from "./ActressesList";
+import axios from "axios";
 
 function AppMain() {
     const [actresses, setActresses] = useState([]);
+
+    useEffect(() => {
+        fetchActresses();
+    }, [])
 
     function fetchActresses() {
 
         axios
             .get(`https://lanciweb.github.io/demo/api/actresses/`)
             .then((resp) => {
-                setActresses(resp.data.results);
+                setActresses(resp.data);
             });
     }
 
@@ -23,9 +29,13 @@ function AppMain() {
                     </div>
 
                     <div className="container">
-                        {setActresses.length !== 0 ? <ActressesList /> : <Alert>
-                            <h2>ERROR</h2>
-                        </Alert>}
+                        {actresses.map((actress) => (
+                            <div className={`col card`} >
+
+                                <img className="card-img" src={actress.image} alt={name} />
+                                <h5 className="upperCase">{actress.name}</h5>
+                            </div>
+                        ))}
                     </div>
 
                 </div>
