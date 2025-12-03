@@ -23,14 +23,14 @@ function AppMain() {
         <>
             <main>
                 <div className="container">
-                    <div className="text-center">
+                    <div className="text-center mb-20">
                         <h1>Actors</h1>
                         <p>List of actors fetched from an API</p>
                     </div>
 
                     <div className="container  flex wrap">
                         {actresses.map((actress) => (
-                            <div className="col card" >
+                            <div className="col card" key={actress.id}>
                                 <ActressCard 
                                 id={actress.id} 
                                 name={actress.name} 
