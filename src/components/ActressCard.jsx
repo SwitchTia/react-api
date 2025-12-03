@@ -1,4 +1,4 @@
-export default function ActressCard({id, name, image, birth_year, nationality, biography, most_famous_movies, awards }) {
+export default function ActressCard({id, name, image, birth_year, nationality, biography, most_famous_movies, awards}) {
 
     return (
 

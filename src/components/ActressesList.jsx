@@ -1,20 +1,20 @@
-import ActressCard from "./ActressCard";
+// import ActressCard from "./ActressCard";
 
 
-export default function ActressesList() {
-    return (
-        <section>
-            <div className={`flex wrap`}>
+// export default function ActressesList() {
+//     return (
+//         <section>
+//             <div className={`flex wrap`}>
 
-                {actress.map(({id, name, image}) => {
+//                 {actress.map(({id, name, image}) => {
                     
-                    return <ActressCard
-                        id={id}
-                        name={name}
-                        image={image}
-                    />
-                })}
-            </div>
-        </section>
-    );
-}
+//                     return <ActressCard
+//                         id={id}
+//                         name={name}
+//                         image={image}
+//                     />
+//                 })}
+//             </div>
+//         </section>
+//     );
+// }

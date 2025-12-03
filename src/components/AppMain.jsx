@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
-import ActressesList from "./ActressesList";
 import axios from "axios";
 import ActressCard from "./ActressCard";
 
 function AppMain() {
-    const [actresses, setActresses] = useState([]);
+    const [actressesList, setActresses] = useState([]);
+    const [actorsList, setActors] = useState([]);
 
     useEffect(() => {
-        fetchActresses();
+        fetchAllActors();
     }, [])
 
-    function fetchActresses() {
+    function fetchAllActors() {
 
         axios
             .get(`https://lanciweb.github.io/demo/api/actresses/`)
             .then((resp) => {
                 setActresses(resp.data);
+                return axios.get(`https://lanciweb.github.io/demo/api/actors/`)
+            })
+            .then((resp2) => {
+                setActors(resp2.data);
             });
     }
 
@@ -29,7 +33,7 @@ function AppMain() {
                     </div>
 
                     <div className="container  flex wrap">
-                        {actresses.map((actress) => (
+                        {actressesList.map((actress) => (
                             <div className="col card" key={actress.id}>
                                 <ActressCard 
                                 id={actress.id} 
@@ -38,8 +42,23 @@ function AppMain() {
                                 birth_year={actress.birth_year} 
                                 nationality={actress.nationality}
                                 biography={actress.biography}
-                                most_famous_movies={actress.most_famous_movies}
+                                most_famous_movies={actress.most_famous_movies.join(", ")}
                                 awards={actress.awards}
+                                />
+                            </div>
+                        ))}
+
+                        {actorsList.map((actor) => (
+                            <div className="col card" key={actor.id}>
+                                <ActressCard 
+                                id={actor.id} 
+                                name={actor.name} 
+                                image={actor.image}
+                                birth_year={actor.birth_year} 
+                                nationality={actor.nationality}
+                                biography={actor.biography}
+                                most_famous_movies={actor.known_for.join(", ")}
+                                awards={actor.awards.join(", ")}
                                 />
                             </div>
                         ))}
