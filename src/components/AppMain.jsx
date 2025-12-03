@@ -38,6 +38,8 @@ function AppMain() {
                                 birth_year={actress.birth_year} 
                                 nationality={actress.nationality}
                                 biography={actress.biography}
+                                most_famous_movies={actress.most_famous_movies}
+                                awards={actress.awards}
                                 />
                             </div>
                         ))}

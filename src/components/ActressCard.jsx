@@ -1,4 +1,4 @@
-export default function ActressCard({id, name, image, birth_year, nationality, biography }) {
+export default function ActressCard({id, name, image, birth_year, nationality, biography, most_famous_movies, awards }) {
 
     return (
 
@@ -11,6 +11,14 @@ export default function ActressCard({id, name, image, birth_year, nationality, b
             </div>
             <div className="mb-20">
                 <p>{biography}</p>
+            </div>
+            <div className="mb-20 red">
+                <p>Known for:  </p>
+                <p>{most_famous_movies}</p>
+            </div>
+            <div className="yellow">
+                <p>Awards:  </p>
+                <p>{awards}</p>
             </div>
         </div>
 
