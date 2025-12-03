@@ -1,7 +1,7 @@
-// import ActressCard from "./ActressCard";
+// import Card from "./Card";
 
 
-// export default function ActressesList() {
+// export default function CardsList() {
 //     return (
 //         <section>
 //             <div className={`flex wrap`}>

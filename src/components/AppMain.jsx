@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import ActressCard from "./ActressCard";
+import Card from "./Card";
+
 
 function AppMain() {
     const [actressesList, setActresses] = useState([]);
     const [actorsList, setActors] = useState([]);
+    
 
     useEffect(() => {
         fetchAllActors();
     }, [])
 
     function fetchAllActors() {
-
         axios
             .get(`https://lanciweb.github.io/demo/api/actresses/`)
             .then((resp) => {
@@ -28,15 +29,15 @@ function AppMain() {
             <main>
                 <div className="container">
                     <div className="text-center mb-20">
-                        <h1>Actors</h1>
-                        <p>List of actors fetched from an API</p>
+                        <h1>Actors and Actresses</h1>
+                        <p>List of actors and actresses fetched from an API</p>
                     </div>
 
                     <div className="container  flex wrap">
                         {actressesList.map((actress) => (
                             <div className="col card" key={actress.id}>
-                                <ActressCard 
-                                id={actress.id} 
+                                
+                                <Card 
                                 name={actress.name} 
                                 image={actress.image}
                                 birth_year={actress.birth_year} 
@@ -50,7 +51,8 @@ function AppMain() {
 
                         {actorsList.map((actor) => (
                             <div className="col card" key={actor.id}>
-                                <ActressCard 
+                                
+                                <Card 
                                 id={actor.id} 
                                 name={actor.name} 
                                 image={actor.image}
