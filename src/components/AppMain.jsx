@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import ActressesList from "./ActressesList";
-import ActressList from "./ActressesList";
 import axios from "axios";
 import ActressCard from "./ActressCard";
 
@@ -32,7 +31,14 @@ function AppMain() {
                     <div className="container  flex wrap">
                         {actresses.map((actress) => (
                             <div className="col card" >
-                                <ActressCard id={actress.id} name={actress.name} image={actress.image} />
+                                <ActressCard 
+                                id={actress.id} 
+                                name={actress.name} 
+                                image={actress.image}
+                                birth_year={actress.birth_year} 
+                                nationality={actress.nationality}
+                                biography={actress.biography}
+                                />
                             </div>
                         ))}
                     </div>
